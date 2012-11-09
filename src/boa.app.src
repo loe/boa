@@ -3,13 +3,11 @@
   {description, "API Constrictor"},
   {vsn, "1"},
   {registered, []},
-  {modules, [
-            boa_app,
-            boa_sup
-            ]},
+  {modules, []},
   {applications, [
                   kernel,
-                  stdlib
+                  stdlib,
+                  cowboy
                  ]},
   {mod, { boa_app, []}},
   {env, []}
