@@ -12,7 +12,7 @@
 start(_StartType, _StartArgs) ->
     Dispatch = [
       {'_', [
-          {[], boa_proxy_handler, []}
+          {['...'], boa_proxy_handler, []}
         ]
       }
     ],
