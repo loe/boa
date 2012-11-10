@@ -12,11 +12,11 @@ handle(Req, State) ->
   %% Break apart the request.
   {ReqMethod, Req2} = cowboy_req:method(Req),
   {ReqHeaders, Req3} = cowboy_req:headers(Req2),
-  {ReqUrl, Req4} = cowboy_req:url(Req3),
+  {ReqURL, Req4} = cowboy_req:url(Req3),
   {ok, ReqBody, Req5} = cowboy_req:body(Req4),
 
   %% Issue proxy request.
-  {ok, Client2} = cowboy_client:request(ReqMethod, ReqUrl, ReqHeaders, ReqBody, State),
+  {ok, Client2} = cowboy_client:request(ReqMethod, ReqURL, ReqHeaders, ReqBody, State),
   {ok, ResStatus, ResHeaders, Client3} = cowboy_client:response(Client2),
   {ok, ResBody, _Client4} = cowboy_client:response_body(Client3),
 
