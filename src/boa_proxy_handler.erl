@@ -12,10 +12,13 @@ handle(Req, Client) ->
   %% Break apart the request.
   {ReqMethod, Req2} = cowboy_req:method(Req),
   {ReqHeaders, Req3} = cowboy_req:headers(Req2),
-  {ReqURL, Req4} = cowboy_req:path(Req3),
+  {ReqPath, Req4} = cowboy_req:path(Req3),
   {ok, ReqBody, Req5} = cowboy_req:body(Req4),
 
   %% Issue proxy request.
+  %% TODO: Make the Host configurable.
+  Host = <<"http://localhost:8081">>,
+  ReqURL = <<Host/binary, ReqPath/binary>>,
   {ok, Client2} = cowboy_client:request(ReqMethod, ReqURL, ReqHeaders, ReqBody, Client),
   {ok, ResStatus, ResHeaders, Client3} = cowboy_client:response(Client2),
   {ok, ResBody, Client4} = cowboy_client:response_body(Client3),
