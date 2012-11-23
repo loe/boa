@@ -1,4 +1,3 @@
-
 -module(boa_sup).
 
 -behaviour(supervisor).
