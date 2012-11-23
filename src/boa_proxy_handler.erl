@@ -15,6 +15,8 @@ handle(Req, Client) ->
   {ReqPath, Req4} = cowboy_req:path(Req3),
   {ok, ReqBody, Req5} = cowboy_req:body(Req4),
 
+  lager:info("~s: ~s", [ReqMethod, ReqPath]),
+
   %% Issue proxy request.
   %% TODO: Make the Host configurable.
   Host = <<"http://localhost:8081">>,
