@@ -3,6 +3,6 @@
               {vsn,"1"},
               {registered,[]},
               {modules,[boa,boa_app,boa_proxy_handler,boa_sup]},
-              {applications,[kernel,stdlib,cowboy,lager]},
+              {applications,[lager,kernel,stdlib,cowboy]},
               {mod,{boa_app,[]}},
               {env,[]}]}.

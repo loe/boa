@@ -5,10 +5,10 @@
   {registered, []},
   {modules, []},
   {applications, [
+                  lager,
                   kernel,
                   stdlib,
-                  cowboy,
-                  lager
+                  cowboy
                  ]},
   {mod, { boa_app, []}},
   {env, []}
