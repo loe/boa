@@ -6,8 +6,8 @@
 %% API.
 
 start() ->
+  ok = lager:start(),
   ok = application:start(crypto),
-  ok = application:start(lager),
   ok = application:start(ranch),
   ok = application:start(cowboy),
   ok = application:start(boa).
